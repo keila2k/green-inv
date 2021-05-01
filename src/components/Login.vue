@@ -81,6 +81,7 @@ export default {
   width: 172px;
   border: 1px solid #0084F4;
   color: #0084F4;
+  background: none;
 
 }
 

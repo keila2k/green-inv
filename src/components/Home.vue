@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Hello {{ user.firstName }}, welcome to your {{ user.businesses.map(element => element.name).join(',') }}</h1>
-    <button @click="logout">Logout</button>
+    <button class="btn google-login-button" @click="logout">Logout</button>
   </div>
 </template>
 
@@ -10,17 +10,10 @@ import {mapState} from "vuex";
 
 export default {
   name: 'Home',
-  /*  data() {
-      const {firstName, businesses} = store?.getters?.user;
-      const businessName = businesses[0]?.name
-      return {
-        firstName,
-        businessName
-      }
-    },*/
   computed: mapState([
     'user'
-  ]), methods: {
+  ]),
+  methods: {
     logout: function () {
       this.$store.dispatch('logout')
           .then(() => {
@@ -32,3 +25,6 @@ export default {
 }
 
 </script>
+<style>
+@import '../styles/shared-styles.scss';
+</style>
