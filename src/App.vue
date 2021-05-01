@@ -1,11 +1,16 @@
 <template>
   <div id="app" class="full-height">
-    <div v-if="isLoggedIn" id="nav">
-      <router-link to="/home">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
+    <div id="nav" class="flex center">
+      <img class="green-logo" src="./assets/green_logo.svg" alt="green log">
+      <div v-if="isLoggedIn">
+        <router-link to="/home">Home</router-link>
+        |
+        <router-link to="/about">About</router-link>
+      </div>
     </div>
-    <router-view/>
+    <div v-bind:class="{ main: isLoggedIn }">
+      <router-view/>
+    </div>
   </div>
 </template>
 <script>
@@ -56,10 +61,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  .green-logo {
+    position: fixed;
+    //top: 38px;
+    right: 86px;
+    width: 221px;
+  }
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 38px;
+  position: fixed;
+  width: 100%;
+  height: 23px;
 
   a {
     font-weight: bold;
@@ -69,5 +84,9 @@ body {
       color: #42b983;
     }
   }
+}
+
+.main {
+  padding-top: 38px;
 }
 </style>

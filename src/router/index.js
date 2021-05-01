@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import store from '../store/index'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../components/Home.vue'
 import Login from "../components/Login";
-import Secure from "../components/Secure";
-import About from "../views/About";
+import About from "../components/About";
 
 Vue.use(VueRouter)
 
@@ -25,14 +24,6 @@ const routes = [
         path: '/home',
         name: 'home',
         component: Home,
-        meta: {
-            requiresAuth: true
-        }
-    },
-    {
-        path: '/secure',
-        name: 'secure',
-        component: Secure,
         meta: {
             requiresAuth: true
         }

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="flex row-reverse full-height">
-      <img class="green-logo" src="../assets/green_logo.svg" width="221px" alt="green log">
       <div class="flex flex-1 min-500 full-height center">
         <div class="flex column flex-end half-width">
           <label class="title">היי, טוב לראות אותך</label>
@@ -15,8 +14,8 @@
               <div class="helper-text"><u>שכחת סיסמה?</u></div>
             </div>
             <div class="flex row-reverse form-field full-width space-between">
-              <button class="rectangle-6 login-button login-button-text" type="submit">כניסה</button>
-              <button type="reset" class="flex center space-evenly login-button google-login-button">
+              <button class="rectangle-6 btn login-button-text" type="submit">כניסה</button>
+              <button type="reset" class="flex center space-evenly btn google-login-button">
                 <img src="../assets/Google_G.svg" alt="Google G" width="24" height="24">
                 כניסה מהירה
               </button>
@@ -67,11 +66,6 @@ export default {
   text-align: right;
 }
 
-.green-logo {
-  position: absolute;
-  top: 38px;
-  right: 86px;
-}
 
 .rectangle-6 {
   width: 228px;
@@ -87,18 +81,6 @@ export default {
   width: 172px;
   border: 1px solid #0084F4;
   color: #0084F4;
-
-}
-
-.login-button {
-  height: 56px;
-  border-radius: 100px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: 20px;
-  text-align: center;
 
 }
 

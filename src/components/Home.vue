@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <h1>Hello {{ user.firstName }}, welcome to your {{ user.businesses.map(element => element.name).join(',') }}</h1>
     <button @click="logout">Logout</button>
   </div>
