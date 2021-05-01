@@ -1,34 +1,44 @@
 <template>
-  <div id="app" class="full-height">
-    <div id="nav" class="flex center">
-      <img class="green-logo" src="./assets/green_logo.svg" alt="green log">
-      <div v-if="isLoggedIn">
-        <router-link to="/home">Home</router-link>
-        |
-        <router-link to="/about">About</router-link>
-      </div>
-    </div>
-    <div v-bind:class="{ main: isLoggedIn }">
+  <div id="app">
+    <Navigation
+        v-if="isLoggedIn"
+        :nav-links="navLinks"
+        :image-path="require('./assets/leaf-new.svg')"
+        background="#fff"
+        link-color="#777"
+        hoverBackground="#ddd"
+    />
+    <div v-bind:class="{ content: isLoggedIn }">
       <router-view/>
     </div>
   </div>
 </template>
 <script>
+import Navigation from "./components/Navigation";
+
 export default {
+  data: () => ({
+    navLinks: [
+      {
+        text: 'Home',
+        path: '/home',
+        icon: '⌂'
+      },
+      {
+        text: 'About',
+        path: '/about',
+        icon: '✎'
+      }
+    ]
+  }),
+  components: {Navigation},
   computed: {
     isLoggedIn: function () {
       return this.$store.getters.isLoggedIn
     }
   },
-  methods: {
-    /*
-        logout: function () {
-          this.$store.dispatch('logout')
-              .then(() => {
-                this.$router.push('/login')
-              })
-        }
-    */
+  comments: {
+    Navigation,
   },
   created: function () {
     this.$http.interceptors.response.use(undefined, function (err) {
@@ -44,7 +54,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/shared-styles.scss';
 @import url('https://cdn.d.greeninvoice.co.il/assets/web-app/2.2.331/components/webfonts/all.min.css');
 
 html, body {
@@ -61,32 +70,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
-  .green-logo {
-    position: fixed;
-    //top: 38px;
-    right: 86px;
-    width: 221px;
-  }
+  height: 100vh;
 }
 
-#nav {
-  padding-top: 38px;
-  position: fixed;
-  width: 100%;
-  height: 23px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 10px;
+  margin-inline-end: 0;
 }
 
-.main {
-  padding-top: 38px;
+.content {
+  padding: 10px;
+  height: calc(100% - 60px - 10*2px);
+}
+
+@media screen and (max-width: 759px) {
+  .content {
+    padding-left: 70px;
+  }
 }
 </style>
