@@ -4,13 +4,15 @@
       <img class="green-logo" src="../assets/green_logo.svg" width="221px" alt="green log">
       <div class="flex flex-1 min-500 full-height center">
         <div class="flex column flex-end half-width">
-          <label class="almoni">היי, טוב לראות אותך</label>
+          <label class="title">היי, טוב לראות אותך</label>
           <form class="flex column full-width flex-end" @submit.prevent="login">
             <div class="form-field full-width rtl">
               <input required v-model="email" type="email" placeholder="מייל"/>
+              <div class="helper-text">כתובת המייל איתה נרשמת לחשבונית ירוקה</div>
             </div>
             <div class="form-field full-width rtl">
               <input required v-model="password" type="password" placeholder="סיסמה"/>
+              <div class="helper-text"><u>שכחת סיסמה?</u></div>
             </div>
             <div class="flex row-reverse form-field full-width space-between">
               <button class="rectangle-6 login-button login-button-text" type="submit">כניסה</button>
@@ -56,7 +58,7 @@ export default {
   background: #FFDCDC;
 }
 
-.almoni {
+.title {
   color: #23445A;
   font-size: 56px;
   font-weight: bold;
@@ -91,7 +93,7 @@ export default {
 .login-button {
   height: 56px;
   border-radius: 100px;
-  font-family: "almoni-neue-dl";
+  font-family: inherit;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0;
@@ -107,15 +109,26 @@ input[type="email"], input[type="password"] {
   line-height: 22px;
   font-size: 18px;
   color: #23445A;
+  font-family: inherit;
 }
 
 .register {
   color: #0084F4;
-  font-family: "almoni-neue-dl";
+  font-family: inherit;
   font-size: 18px;
   letter-spacing: 0;
   line-height: 22px;
   text-align: right;
+}
+
+.helper-text {
+  text-align: right;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.form-field {
+  color: #23445A;
 }
 
 @media screen and (max-width: 600px) {
